@@ -14,19 +14,22 @@ public:
 	void keyCheck();
 	~Game();
 private:
+	sf::ContextSettings settings;
 	sf::RenderWindow window;
 	sf::Font font;
-	sf::ContextSettings settings;
+
+	sf::RectangleShape rectSky;
+
+	sf::Sprite spritePlayerWalk1;
+	sf::Sprite spritePlayerWalk2;
+	sf::Sprite spritePlayerWalk3;
+	sf::Sprite spritePlayerJump;
+
 	sf::Clock upsClock;
 	sf::Time accumulator;
 	sf::Time ups;
 
 	sf::Texture texturePlayer;
-	
-	sf::Sprite spritePlayerWalk1;
-	sf::Sprite spritePlayerWalk2;
-	sf::Sprite spritePlayerWalk3;
-	sf::Sprite spritePlayerJump;
 
 	Character player;
 };

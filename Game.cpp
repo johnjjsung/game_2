@@ -6,6 +6,7 @@ Game::Game() :
 	settings(),
 	window(sf::VideoMode(WindowWidth, WindowHeight), "Grad Project", sf::Style::Close, settings),
 	font(),
+	rectSky(sf::Vector2f(WindowWidth, GL)),
 	spritePlayerWalk1(texturePlayer, sf::IntRect(0, 0, 29, 29)),
 	spritePlayerWalk2(),
 	spritePlayerWalk3(),
@@ -17,7 +18,11 @@ Game::Game() :
 {
 	settings.antialiasingLevel = 4;
 	window.setVerticalSyncEnabled(true);
+	rectSky.setFillColor(sf::Color(120, 170, 255));
 
+	if (!font.loadFromFile("pixelmix_bold.ttf")) {
+		// error
+	}
 	if (!texturePlayer.loadFromFile("sprites/charsprite.png")) {
 		// error
 	}
@@ -41,10 +46,12 @@ void Game::run() {
 			keyCheck();
 			
 			player.Update();
-
+			player.setPosition(50, 50);
+			spritePlayerWalk1.setPosition(sf::Vector2f(50, 50));
 
 			window.clear();
 			//draw stuff
+			window.draw(rectSky);
 			window.draw(spritePlayerWalk1);
 			window.display();
 

@@ -9,6 +9,8 @@ public:
 	Character();
 	void Accel(const char* xory, float speed);
 	void Update();
+	void setPosition(float newx, float newy);
+	sf::Vector2f getPosition();
 	void Birth();
 	void Death();
 	float GetSpeed();
